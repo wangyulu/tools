@@ -1,0 +1,19 @@
+{
+    "name": "sky/tools",
+    "type": "library",
+    "authors": [
+        {
+            "name": "sky",
+            "email": "972653707@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Sky\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "require": {}
+}
