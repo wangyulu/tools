@@ -7,35 +7,22 @@
  * Time: 16:12
  */
 
+// **************
+// 依赖 mcrypt 扩展，PHP7.1.0及以上已被弃用
+// **************
+
 // 注意引入实际的加载目录
 require __DIR__ . '/../../vendor/autoload.php';
 
-// 加密执行方式 php index.php enc
-// 解密执行方式 php index.php sign
+// 加解密key
+$key = 'kj8sdh8w';
 
-$type = $_SERVER['argv'];
-if (!isset($type[1])) {
-    echo 'e.g php index.php enc or dec';
-    exit;
-}
+$data = '972653707@qq.com';
 
-// 测试参数
-$params = [
-    'title' => '标题一',
-    'type'  => 1,
-    'rooms' => [
-        [
-            'roomId' => 1,
-            'num'    => 2
-        ]
-    ],
-];
+echo "加密前的数据：{$data}" . PHP_EOL;
+$data = \Sky\Utils\Encry\Symmetry::desEnc($data, $key);
+echo "加密后的数据：{$data}" . PHP_EOL;
+$data = \Sky\Utils\Encry\Symmetry::desdec($data, $key);
+echo "解密后的数据：{$data}" . PHP_EOL;
 
-// enc：加密
-if ($type[1] == 'enc') {
-    $sign = \Sky\Utils\Encry\Irreversible::genSign($params);
-    echo $sign . PHP_EOL;
-} else {
-    echo "sign : {$type[1]}" . PHP_EOL;
-}
 

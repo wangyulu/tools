@@ -1,4 +1,4 @@
-<?php namespace Sky\Utils\Encry;
+<?php namespace Sky\Utils\Sign;
 
 /**
  * Created by PhpStorm.
@@ -8,7 +8,7 @@
  * Desc: 提供不可逆加签验签算法服务
  */
 
-class Irreversible
+class Sign
 {
     /**
      * 生成签名
